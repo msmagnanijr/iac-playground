@@ -12,9 +12,12 @@ sudo systemctl enable httpd.service
 echo "Instalando o módulo do PHP no Apache Web Server"
 sudo dnf install php php-common php-mysqli php-gd php-zip php-mcrypt php-json php-xml php-gettext php-curl php-intl -y
 
-echo "Instalando a Página Inicial"
+echo "Implantando a aplicação"
 sudo dnf install wget -y
-wget https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/scripts/index.php -O /var/www/html/index.php
+wget https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/index.php -O /var/www/html/index.php
+wget https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/conectar.php -O /var/www/html/conectar.php
+wget https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/inserir.php -O /var/www/html/inserir.php
+wget https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/processar.php -O /var/www/html/processar.php
 
 echo "Reiniciando o Apache Web Server"
 sudo systemctl restart httpd.service
