@@ -16,3 +16,5 @@ INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Mau
 INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Karine', 'Takayama', 'karine@gmail.com', '452083800108', 'Sao Paulo');
 
 INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Luan', 'Ribeiro', 'luan@gmail.com', '428175470132', 'Sao Francisco de Paula');
+
+SELECT * FROM eleitor;

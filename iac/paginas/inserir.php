@@ -15,7 +15,7 @@
 		<input type="text" name="numero_titulo">
 		<br>
 		Cidade:<br>
-		<input type="email" name="cidade">
+		<input type="text" name="cidade">
 		<br><br>
 		<input type="submit" name="save" value="Salvar">
 	</form>
