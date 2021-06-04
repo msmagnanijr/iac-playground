@@ -1,11 +1,18 @@
-CREATE TABLE pessoa (
-    id_pessoa int,
-    nome varchar(255),
-    sobrenome varchar(255),
-    email varchar(255),
-    cidade varchar(255)
+CREATE DATABASE tse;
+
+USE tse;
+
+CREATE TABLE eleitor (
+    id_pessoa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    sobrenome VARCHAR(255),
+    email VARCHAR(255),
+    numero_titulo VARCHAR(255),
+    cidade VARCHAR(255)
 );
 
-INSERT INTO pessoa (id_pessoa, nome, sobrenome, email, cidade) VALUES ('1', 'Mauricio', 'Magnani', 'msmagnanijr@gmail.com', 'Picada Cafe');
+INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Mauricio', 'Magnani', 'msmagnanijr@gmail.com', '688532230132','Picada Cafe');
 
-INSERT INTO pessoa (id_pessoa, nome, sobrenome, email, cidade) VALUES ('2', 'Karine', 'Takayama', 'karine@gmail.com', 'Sao Paulo');
+INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Karine', 'Takayama', 'karine@gmail.com', '452083800108', 'Sao Paulo');
+
+INSERT INTO eleitor (nome, sobrenome, email, numero_titulo, cidade) VALUES ('Luan', 'Ribeiro', 'luan@gmail.com', '428175470132', 'Sao Francisco de Paula');
