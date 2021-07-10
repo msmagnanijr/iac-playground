@@ -5,7 +5,7 @@
     name: httpd
     state: latest   
 
-- name: Iniciando e Habilitando o Apache HTTPD no Boot
+- name: Iniciando e Habilitando o Apache Web Server no Boot
   become: yes
   become_method: sudo
   systemd:

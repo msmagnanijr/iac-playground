@@ -1,0 +1,6 @@
+- name: Criando um diretorio chamado infnet
+  become: yes
+  become_method: sudo
+  file:
+    path: /src/www/infnet
+    state: directory
