@@ -1,5 +1,6 @@
 ---
 - hosts: all
   roles:
-    - role: apache
-    - role: mysql
+    - role: dir
+#    - role: apache
+#    - role: mysql
