@@ -1,0 +1,14 @@
+- name: Instalando o MySQL Server
+  become: yes
+  become_method: sudo
+  dnf:
+    name: mysql-server
+    state: present
+
+- name: Iniciando e Habilitando o MySQL Server no Boot
+  become: yes
+  become_method: sudo
+  systemd:
+    name: mariadb.service
+    state: started
+    enabled: true

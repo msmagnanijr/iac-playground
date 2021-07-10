@@ -1,0 +1,67 @@
+- name: Iniciando a instalação do Apache Web Server
+  become: yes
+  become_method: sudo
+  dnf:
+    name: httpd
+    state: latest   
+
+- name: Iniciando e Habilitando o Apache HTTPD no Boot
+  become: yes
+  become_method: sudo
+  systemd:
+    name: httpd.service
+    state: started
+    enabled: true
+
+- name: Instalando o módulo do PHP no Apache Web Server
+  become: yes
+  become_method: sudo
+  dnf:
+    name:
+      - php
+      - php-common
+      - php-mysqli
+      - php-gd
+      - php-zip
+      - php-mcrypt
+      - php-json
+      - php-xml
+      - php-gettext
+      - php-curl
+      - php-intl
+    state: latest
+
+- name: Implantando a aplicação - Pagina index
+  become: yes
+  become_method: sudo
+  get_url:
+    url: https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/index.php
+    dest: /var/www/html/index.php
+
+- name: Implantando a aplicação - Pagina conectar
+  become: yes
+  become_method: sudo
+  get_url:
+    url: https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/conectar.php
+    dest: /var/www/html/conectar.php
+
+- name: Implantando a aplicação - Pagina inserir
+  become: yes
+  become_method: sudo
+  get_url:
+    url: https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/inserir.php
+    dest: /var/www/html/inserir.php
+
+- name: Implantando a aplicação - Pagina processar
+  become: yes
+  become_method: sudo
+  get_url:
+    url: https://raw.githubusercontent.com/msmagnanijr/infnet-first-steps/main/iac/paginas/processar.php
+    dest: /var/www/html/processar.php
+
+- name: reiniciando o Apache HTTPD
+  become: yes
+  become_method: sudo
+  systemd:
+    name: httpd.service
+    state: restarted
