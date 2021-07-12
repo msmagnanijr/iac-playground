@@ -3,7 +3,7 @@ import logging
 
 def initialize_log():
     logging.basicConfig(level=logging.INFO)
-    handler = logging.FileHandler("dockerfile-sources-tool.log")
+    handler = logging.FileHandler("app.log")
     log = logging.getLogger('werkzeug')
     log.setLevel(logging.INFO)
     log.addHandler(handler)
