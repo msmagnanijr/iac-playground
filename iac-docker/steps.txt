@@ -1,0 +1,23 @@
+$ docker network create infnet
+
+$ docker pull mongo
+
+$ mkdir -p /home/vagrant/data
+
+$ docker run --name mongodb -v ~/data:/data/db -p 27017:27017 -d mongo
+
+# mongo
+
+> use admin
+
+> db.createUser({
+    user: 'root',
+    pwd: 'redhat',
+    roles: [{ role: 'readWrite', db:'admin'}]
+})
+
+$ docker run --net=infnet --name=mongodb -d -p 27017:27017 -v ~/data:/data/db mongo mongod --auth
+
+$ docker build  -t mmagnani/infnet-backend:latest  && docker pull mmagnani/infnet-backend:latest
+
+$ docker run --net=infnet --name=backend -d -p 5000:5000 mmagnani/infnet-backend:latest
