@@ -20,6 +20,10 @@
   pip:
     name: docker
 
+- name: install pymongo SDK for python/mongodb
+  pip:
+    name: pymongo
+
 - name: create the mongodb data dir
   file:
     path: "{{ mongodb_dir }}"
@@ -40,6 +44,10 @@
      - "27017:27017"
     networks:
       - name: "{{ docker_network_name }}"
+    env:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "redhat"
+      MONGO_INITDB_DATABASE: "admin"
     command: mongod --auth
 
 - name: create backend container, connect to network and link with mongodb
@@ -53,5 +61,5 @@
       - name: "{{ docker_network_name }}"
         links:
           - mongo
-
+          
 # next step build, publish https://www.redhat.com/sysadmin/container-images-ansible
