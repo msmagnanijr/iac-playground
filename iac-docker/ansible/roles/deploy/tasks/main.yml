@@ -1,0 +1,57 @@
+---
+- name: "check if this is really ubuntu"
+  fail:
+    msg: "This role is only supported for Ubuntu hosts"
+  when: ansible_distribution != 'Ubuntu'
+
+# force ansible to refresh user groups
+- name: reset ssh connection
+  meta: reset_connection
+
+- name: install pip3
+  become: yes
+  become_method: sudo
+  apt: 
+    update_cache: yes
+    name: python3-pip 
+    state: latest
+
+- name: install docker SDK for python
+  pip:
+    name: docker
+
+- name: create the mongodb data dir
+  file:
+    path: "{{ mongodb_dir }}"
+    state: directory
+
+- name: create a docker network
+  docker_network:
+    name: "{{ docker_network_name }}"
+
+- name: create mongodb container and connect to network
+  docker_container:
+    state: started
+    name: mongo
+    image: "mongo:latest"
+    volumes:
+      - /home/vagrant/data:/data/db
+    ports:
+     - "27017:27017"
+    networks:
+      - name: "{{ docker_network_name }}"
+    command: mongod --auth
+
+- name: create backend container, connect to network and link with mongodb
+  docker_container:
+    state: started
+    name: backend
+    image: "{{ backend_image }}"
+    ports:
+     - "5000:5000"
+    networks:
+      - name: "{{ docker_network_name }}"
+        links:
+          - mongo
+
+# next step build, publish https://www.redhat.com/sysadmin/container-images-ansible

@@ -1,0 +1,5 @@
+# https://github.com/ansible/ansible/issues/54855
+ansible_python_interpreter: /usr/bin/python3
+docker_network_name: infnet
+mongodb_dir: /home/vagrant/data
+backend_image: mmagnani/infnet-backend:latest

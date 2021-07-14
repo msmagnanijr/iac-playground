@@ -19,7 +19,7 @@
     repo: deb https://download.docker.com/linux/ubuntu groovy stable
     state: present
 
-- name: udate apt and install docker-ce
+- name: update apt and install docker-ce
   become: yes
   become_method: sudo
   apt: 
