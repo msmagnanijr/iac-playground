@@ -61,5 +61,14 @@
       - name: "{{ docker_network_name }}"
         links:
           - mongo
-          
-# next step build, publish https://www.redhat.com/sysadmin/container-images-ansible
+
+- name: validating if the backend container is up and running 
+  wait_for:
+    host: "localhost"
+    port: 5000
+    delay: 10
+    timeout: 30
+    state: started
+    msg: "backend server is not running"
+    
+# next step build, push https://www.redhat.com/sysadmin/container-images-ansible // https://docs.ansible.com/ansible/2.9/modules/docker_image_module.html
