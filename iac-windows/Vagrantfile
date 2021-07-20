@@ -1,7 +1,7 @@
 # https://stackoverflow.com/questions/52578270/install-python-with-cmd-or-powershell/52578838
 # https://techexpert.tips/powershell/powershell-open-port-firewall/
 # New-NetFirewallRule -DisplayName "ALLOW TCP PORT 80" -Direction inbound -Profile Any -Action Allow -LocalPort 80 -Protocol TCP
-
+# https://stackoverflow.com/questions/5458048/how-can-i-make-a-python-script-standalone-executable-to-run-without-any-dependen
 
 Vagrant.configure("2") do |config|
 
