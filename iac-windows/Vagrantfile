@@ -11,5 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell,  privileged: true, path: "shell/install_chocolatey.cmd"
   config.vm.provision :shell,  privileged: true, path: "shell/install_python.cmd"
   config.vm.provision :shell,  privileged: true, path: "shell/configure_firewall.cmd"
+  config.vm.provision "file", source: "code/tcp-server.py", destination: "C:\\tmp\\tcp-server.py"
+  config.vm.provision :shell,  privileged: true, path: "code/create_tcp_server_executable.cmd"
 
 end
