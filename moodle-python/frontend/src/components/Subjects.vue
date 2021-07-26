@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-10">
         <img :src="require('../assets/logo.png')"/><br><br>
-         <hr>
+        <hr>
         <h2>Minhas Disciplinas</h2>
         <hr><br><br>
         <alert :message=message v-if="showMessage"></alert>
