@@ -1,3 +1,3 @@
-# Infnet Primeiros Passos
+# Infnet - Engenharia da Computação
 
-Esses são os nossos primeiros passos no mundo da tecnologia Open Source.
+Algumas experiências feitas durante a graduação de Engenharia da Computação no Infnet.
