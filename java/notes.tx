@@ -1,0 +1,5 @@
+mvn io.quarkus:quarkus-maven-plugin:2.0.3.Final:create \
+    -DprojectGroupId=edu.infnet \
+    -DprojectArtifactId=infnet-api \
+    -DclassName="edu.infnet.web.student.StudentResource" \
+    -Dpath="/hello"
